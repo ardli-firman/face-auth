@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Capture</title>
+        <style>
+            a,
+            video {
+                text-align: center;
+                display: block;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
+    <body>
+        <video autoplay width="568" height="568"></video>
+        <a href="" id="capture">Capture</a>
+        <script>
+            const video = document.querySelector("video");
+            const capt = document.getElementById("capture");
+            const constraints = { video: true };
+            navigator.mediaDevices.getUserMedia(constraints).then(stream => {
+                video.srcObject = stream;
+            });
+
+            capt.addEventListener("click", function() {
+                const canvas = capture(video);
+                capt.href = canvas.toDataURL();
+                capt.download = "face.png";
+            });
+
+            function capture(video, scaleFactor) {
+                if (scaleFactor == null) {
+                    scaleFactor = 0.25;
+                }
+                var w = video.videoWidth * scaleFactor;
+                var h = video.videoHeight * scaleFactor;
+                var canvas = document.createElement("canvas");
+                canvas.width = w;
+                canvas.height = h;
+                var ctx = canvas.getContext("2d");
+                ctx.drawImage(video, 0, 0, w, h);
+                return canvas;
+            }
+        </script>
+    </body>
+</html>

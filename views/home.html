@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Face recognition</title>
+        <script data-pace-options='{"startOnPageLoad":false}' src="js/pace.min.js"></script>
+        <link rel="stylesheet" href="css/pace_loading_bar.css" />
+        <script defer src="js/face-api.min.js"></script>
+        <script defer src="js/home.js"></script>
+        <style>
+            canvas {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Hello world</h1>
+        <div id="alert"></div>
+        <a href="/capture">Capture face</a>
+        <a href="/live">Live recognition</a>
+        <a href="/single">Single face recognition</a>
+        <a href="/registrasi">Registrasi</a>
+        <br />
+        <br />
+        <video id="video" width="720" height="560" autoplay muted></video>
+    </body>
+</html>
