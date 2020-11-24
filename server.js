@@ -5,6 +5,8 @@ const cors = require("cors");
 const app = express();
 const bodyParser = require("body-parser");
 const sqlite3 = require("sqlite3").verbose();
+
+// Setting up database
 const db = new sqlite3.Database(
     path.join(__dirname, "db/face.db"),
     sqlite3.OPEN_CREATE | sqlite3.OPEN_READWRITE,
@@ -14,7 +16,8 @@ const db = new sqlite3.Database(
         }
     }
 );
-// Setting up database
+
+// Create Table
 db.run(
     "CREATE TABLE IF NOT EXISTS people(id INTEGER PRIMARY KEY AUTOINCREMENT,nama TEXT NOT NULL,tgl_lahir DATE NOT NULL,email TEXT NOT NULL,foto BLOB)"
 );
@@ -28,6 +31,7 @@ app.use(
         origin: "http://localhost:3000"
     })
 );
+
 // Body parser
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -68,6 +72,7 @@ app.post("/test", (req, res) => {
     res.json("oke");
 });
 
+// Register
 app.post("/register", (req, res) => {
     if (!req.files) {
         res.status(404);
@@ -88,6 +93,7 @@ app.post("/register", (req, res) => {
     });
 });
 
+// Get people data from db
 app.get("/people", async (req, res) => {
     let sql = "SELECT DISTINCT foto,nama FROM people";
     let data = [];

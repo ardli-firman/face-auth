@@ -18,6 +18,9 @@
         <video autoplay width="568" height="568"></video>
         <a href="" id="capture">Capture</a>
         <script>
+            // -- Just capture via webcam
+
+            // Set media
             const video = document.querySelector("video");
             const capt = document.getElementById("capture");
             const constraints = { video: true };
@@ -25,12 +28,14 @@
                 video.srcObject = stream;
             });
 
+            // Capture face
             capt.addEventListener("click", function() {
                 const canvas = capture(video);
                 capt.href = canvas.toDataURL();
                 capt.download = "face.png";
             });
 
+            // Capture function
             function capture(video, scaleFactor) {
                 if (scaleFactor == null) {
                     scaleFactor = 0.25;

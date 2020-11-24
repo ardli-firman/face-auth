@@ -5,6 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>Verifikasi</title>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous"
+        />
         <script defer src="js/face-api.min.js"></script>
         <script defer src="js/verifikasi.js"></script>
         <style>
@@ -12,12 +19,20 @@
             video {
                 display: block;
                 margin: 0 auto;
+                clip-path: ellipse(110px 140px at center);
+                /* OLD VALUE example: circle(245px, 140px, 50px); */
+                /* Yep, even the new clip-path has deprecated stuff. */
             }
         </style>
     </head>
     <body>
-        <video id="video" width="450" height="450" autoplay muted></video>
-        <button id="verify">Verify</button>
-        <div id="output"></div>
+        <div class="container">
+            <div class="text-center">
+                <h3 class="mt-4">Silahkan paskan wajah anda!</h3>
+                <video id="video" width="450" height="450" autoplay muted></video>
+                <button class="btn btn-primary" id="verify">Verify</button>
+            </div>
+            <div id="output"></div>
+        </div>
     </body>
 </html>

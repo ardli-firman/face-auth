@@ -5,27 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>Registrasi</title>
-        <script defer src="js/face-api.min.js"></script>
+        <script defer src="js/face-api.js"></script>
         <script defer src="js/registrasi.js"></script>
     </head>
     <body>
         <h2 style="display: block" id="loader">Loading Module...</h2>
         <div style="display: none" id="loader2">Loading...</div>
         <div id="alert"></div>
-        <form
-            action="/register"
-            id="form-regist"
-            method="post"
-            enctype="multipart/form-data"
-            style="display: none"
-        >
-            <input
-                type="text"
-                name="nama"
-                id="nama"
-                placeholder="Nama"
-                required
-            />
+        <form action="/register" id="form-regist" method="post" enctype="multipart/form-data" style="display: none">
+            <input type="text" name="nama" id="nama" placeholder="Nama" required />
             <input type="hidden" name="img-crop" id="img-crop" />
             <input type="text" name="alamat" placeholder="Alamat" required />
             <input type="text" name="email" placeholder="E Mail" required />

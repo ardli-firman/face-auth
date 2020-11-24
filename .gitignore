@@ -1,6 +1,3 @@
-db/*
 node_modules/*
-public/js/*
-public/models/*
-public/vendor/*
 uploads/*
+people.json
